@@ -49,7 +49,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void NameWithHyphen() {
+    public void nameWithHyphen() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений-Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79201234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -60,7 +60,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void NoClickAgreement() {
+    public void noClickAgreement() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79201234567");
         driver.findElement(By.cssSelector(".button")).click();
@@ -70,7 +70,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void PhoneNotFilled() {
+    public void phoneNotFilled() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -81,7 +81,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void SpaceBarInsteadPhone() {
+    public void spaceBarInsteadPhone() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("   ");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -103,7 +103,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void InNameEnglishWord() {
+    public void inNameEnglishWord() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Evgeny Starikov");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79201234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -114,7 +114,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void NameWithNumbers() {
+    public void nameWithNumbers() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений 789456123");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79201234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -128,7 +128,6 @@ public class OrderCardTest {
     public void emptyForm() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("");
-        // driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector(".button")).click();
 
         String text = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
@@ -136,7 +135,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void SpecialSymbolsInPhone() {
+    public void specialSymbolsInPhone() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+795374&4015");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -158,7 +157,7 @@ public class OrderCardTest {
     }
 
     @Test
-    public void IncompleteNumberWithoutPlusSign() {
+    public void incompleteNumberWithoutPlusSign() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("79537424015");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -180,13 +179,13 @@ public class OrderCardTest {
     }
 
     @Test
-    public void numberWithPlusSignInMiddle() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Евгений Стариков");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("7+9537424015");
+    public void nameNotFilled() {
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79201234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector(".button")).click();
 
-        String text = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText();
-        assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", text.trim());
+        String text = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
+        assertEquals("Поле обязательно для заполнения", text.trim());
     }
 }
