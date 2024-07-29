@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/x00wjyf7fisquvgi/branch/main?svg=true)](https://ci.appveyor.com/project/Buslich/dz3-auto/branch/main)
+[![Java CI with Gradle](https://github.com/Buslich/DZ3_Auto/actions/workflows/gradle.yml/badge.svg)](https://github.com/Buslich/DZ3_Auto/actions/workflows/gradle.yml)
